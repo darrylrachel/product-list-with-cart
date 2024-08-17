@@ -1,0 +1,5 @@
+*DS_Store
+node_modules
+design
+package-lock.json
+README-template.md

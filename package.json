@@ -1,0 +1,21 @@
+{
+  "name": "product-list-with-cart",
+  "version": "1.0.0",
+  "type": "module",
+  "description": "",
+  "main": "index.html",
+  "scripts": {
+    "test": "mocha"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "bootstrap": "^5.3.3",
+    "chai": "^5.1.1",
+    "mocha": "^10.7.3"
+  },
+  "dependencies": {
+    "jsdom": "^24.1.1"
+  }
+}
