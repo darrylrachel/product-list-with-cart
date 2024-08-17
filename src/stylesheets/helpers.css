@@ -1,0 +1,10 @@
+.border {
+  border: 1px solid aqua;
+}
+
+.spaceV_10 {
+  height: 10px;
+}
+.spaceH_10 {
+  width: 10px;
+}
