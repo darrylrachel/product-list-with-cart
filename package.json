@@ -16,6 +16,7 @@
     "mocha": "^10.7.3"
   },
   "dependencies": {
+    "cors": "^2.8.5",
     "jsdom": "^24.1.1"
   }
 }

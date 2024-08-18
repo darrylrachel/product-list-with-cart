@@ -12,7 +12,7 @@
 
   --product_names: 16px;
 
-  --red_hat: "Red Hat Text", sans-serif;
+  --red_hat: 'Red Hat Text', sans-serif;
   --fw_400: 400;
   --fw_600: 600;
   --fw_700: 700;
@@ -33,8 +33,16 @@ html {
 }
 
 /* Remove default margin in favour of better control in authored CSS */
-body, h1, h2, h3, h4, p,
-figure, blockquote, dl, dd {
+body,
+h1,
+h2,
+h3,
+h4,
+p,
+figure,
+blockquote,
+dl,
+dd {
   margin-block-end: 0;
 }
 
@@ -54,14 +62,21 @@ body {
 }
 
 /* Set shorter line heights on headings and interactive elements */
-h1, h2, h3, h4,
-button, input, label {
+h1,
+h2,
+h3,
+h4,
+button,
+input,
+label {
   line-height: 1.1;
 }
 
 /* Balance text wrapping on headings */
-h1, h2,
-h3, h4 {
+h1,
+h2,
+h3,
+h4 {
   text-wrap: balance;
 }
 
@@ -79,8 +94,10 @@ picture {
 }
 
 /* Inherit fonts for inputs and buttons */
-input, button,
-textarea, select {
+input,
+button,
+textarea,
+select {
   font-family: inherit;
   font-size: inherit;
 }
@@ -94,7 +111,6 @@ textarea:not([rows]) {
 :target {
   scroll-margin-block: 5ex;
 }
-
 
 /*//////////////////////////////////////////////////////////////
                            GLOBAL STYLES & PROPERTIES
@@ -182,7 +198,6 @@ textarea:not([rows]) {
 
   /* Button Hover */
 
-
   .item-card__title {
     color: var(--rose_500);
     font-size: 14px;
@@ -200,7 +215,8 @@ textarea:not([rows]) {
     font-size: 14px;
   }
 
-  .item-card__description, .item-card__price {
+  .item-card__description,
+  .item-card__price {
     margin-top: 2px;
   }
 
@@ -240,7 +256,7 @@ textarea:not([rows]) {
     margin-top: 20px;
     margin-bottom: 20px;
   }
- }
+}
 
 /* Medium devices (tablets, 768px and up) */
 @media (min-width: 768px) {
@@ -319,7 +335,6 @@ textarea:not([rows]) {
 
   /* Button Hover */
 
-
   .item-card__title {
     color: var(--rose_500);
     font-size: 14px;
@@ -337,7 +352,8 @@ textarea:not([rows]) {
     font-size: 14px;
   }
 
-  .item-card__description, .item-card__price {
+  .item-card__description,
+  .item-card__price {
     margin-top: 2px;
   }
 
@@ -395,10 +411,11 @@ textarea:not([rows]) {
   .main__row {
     display: flex;
     flex-direction: row;
+    justify-content: space-between;
   }
 
   .main__main {
-    width: 100%;
+    width: 50%;
   }
 
   .main__header {
@@ -415,6 +432,16 @@ textarea:not([rows]) {
   }
 
   /* END HEADER */
+
+  #product-container {
+    display: flex;
+    flex-wrap: wrap;
+  }
+
+  .product-card {
+    flex: 1 1 calc(33.333% - 20px); /* Make each product take up 1/3 of the container width */
+    box-sizing: border-box;
+  }
 
   .container.product-cards {
     margin-left: 26px;
@@ -463,7 +490,6 @@ textarea:not([rows]) {
 
   /* Button Hover */
 
-
   .item-card__title {
     color: var(--rose_500);
   }
@@ -478,7 +504,8 @@ textarea:not([rows]) {
     font-weight: 600;
   }
 
-  .item-card__description, .item-card__price {
+  .item-card__description,
+  .item-card__price {
     margin-top: 2px;
   }
 
@@ -492,7 +519,7 @@ textarea:not([rows]) {
 
   .main__side {
     /* border: 1px dashed magenta; */
-    width: 50%;
+    width: 36%;
   }
 
   .sidebar {
@@ -524,26 +551,3 @@ textarea:not([rows]) {
     margin-bottom: 20px;
   }
 }
-
-
-
-
-
-
-
-/* Extra small devices (portrait phones, less than 576px) */
-/* No media query since this is the default in Bootstrap */
-
-/* Small devices (landscape phones, 576px and up) */
-/* @media (min-width: 576px) {
-  
- } */
-
-/* Medium devices (tablets, 768px and up) */
-/* @media (min-width: 768px) { ... } */
-
-/* Large devices (desktops, 992px and up) */
-/* @media (min-width: 992px) { ... } */
-
-/* Extra large devices (large desktops, 1200px and up) */
-/* @media (min-width: 1200px) { ... } */

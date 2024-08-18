@@ -1,270 +1,90 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- displays site properly based on user's device -->
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- displays site properly based on user's device -->
 
-  <link rel="icon" type="image/png" sizes="32x32" href="./assets/images/favicon-32x32.png">
-  
-  <title>TRBL LABS | Product list with cart</title>
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="./assets/images/favicon-32x32.png"
+    />
 
-  <!-- Bootstrap CSS -->
-  <link rel="stylesheet" href="node_modules/bootstrap/dist/css/bootstrap.min.css">
+    <title>TRBL LABS | Product list with cart</title>
 
-  <!-- Custom CSS -->
-  <link rel="stylesheet" href="src/stylesheets/index.css">
+    <!-- Bootstrap CSS -->
+    <link
+      rel="stylesheet"
+      href="node_modules/bootstrap/dist/css/bootstrap.min.css"
+    />
 
-  <!-- Feel free to remove these styles or customise in your own stylesheet 👍 -->
-  <style>
-    .attribution { font-size: 11px; text-align: center; }
-    .attribution a { color: hsl(228, 45%, 44%); }
-  </style>
-</head>
-<body>
-  <div class="main container-fluid">
-    <row class="main__row">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="src/stylesheets/index.css" />
+
+    <!-- Feel free to remove these styles or customise in your own stylesheet 👍 -->
+    <style>
+      .attribution {
+        font-size: 11px;
+        text-align: center;
+      }
+      .attribution a {
+        color: hsl(228, 45%, 44%);
+      }
+    </style>
+  </head>
+  <body>
+    <div class="main container-fluid">
+      <div class="row main__row">
         <div class="main__main">
           <div class="main__header">
             <h1 class="title">Desserts</h1>
           </div>
 
           <div class="main__content">
-            <div class="container product-cards">
+            <div class="container">
               <div class="row">
-                <div class="items">
+                <div class="items" id="product-container">
+                  <!-- Products are being dynamically added from json file using JS -->
 
-                  <div class="item-card">
-                    <div class="item-card__image">
-                      <img src="./assets/images/image-waffle-desktop.jpg" alt="Dessert Image" class="product-image">
-                    </div>
-                    <div class="item-card__button">
-                      <a href="#" class="button">
-                        <button class="btn"><img src="./assets/images/icon-add-to-cart.svg" alt=""> Add to Cart</button>
-                      </a>
-                    </div>
-                    <div class="item-card__title">
-                      <p class="title">Waffle</p>
-                    </div>
-                    <div class="item-card__description">
-                      <p class="descriptio">Waffle with Blueberries</p>
-                    </div>
-                    <div class="item-card__price">
-                      <p class="price">$6.50</p>
-                    </div>
-                  </div>
-                  
-                  <div class="item-card">
-                    <div class="item-card__image">
-                      <img src="./assets/images/image-creme-brulee-desktop.jpg" alt="Dessert Image" class="product-image">
-                    </div>
-                    <div class="item-card__button">
-                      <a href="#" class="button">
-                        <button class="btn"><img src="./assets/images/icon-add-to-cart.svg" alt=""> Add to Cart</button>
-                      </a>
-                    </div>
-                    <div class="item-card__title">
-                      <p class="title">Crème Brûlée</p>
-                    </div>
-                    <div class="item-card__description">
-                      <p class="descriptio">Vanilla Bean Crème Brûlée</p>
-                    </div>
-                    <div class="item-card__price">
-                      <p class="price">$7.00</p>
-                    </div>
-                  </div>
-
-                  <div class="item-card">
-                    <div class="item-card__image">
-                      <img src="./assets/images/image-macaron-desktop.jpg" alt="Dessert Image" class="product-image">
-                    </div>
-                    <div class="item-card__button">
-                      <a href="#" class="button">
-                        <button class="btn"><img src="./assets/images/icon-add-to-cart.svg" alt=""> Add to Cart</button>
-                      </a>
-                    </div>
-                    <div class="item-card__title">
-                      <p class="title">Macaron</p>
-                    </div>
-                    <div class="item-card__description">
-                      <p class="descriptio">Macaron Mix of Five</p>
-                    </div>
-                    <div class="item-card__price">
-                      <p class="price">$8.00</p>
-                    </div>
-                  </div>
                 </div>
               </div>
-
-              <!-- SECOND ROW -->
-
-              <div class="row">
-                <div class="items">
-
-                  <div class="item-card">
-                    <div class="item-card__image">
-                      <img src="./assets/images/image-tiramisu-desktop.jpg" alt="Dessert Image" class="product-image">
-                    </div>
-                    <div class="item-card__button">
-                      <a href="#" class="button">
-                        <button class="btn"><img src="./assets/images/icon-add-to-cart.svg" alt=""> Add to Cart</button>
-                      </a>
-                    </div>
-                    <div class="item-card__title">
-                      <p class="title">Tiramisu</p>
-                    </div>
-                    <div class="item-card__description">
-                      <p class="descriptio">Classic Tiramisu</p>
-                    </div>
-                    <div class="item-card__price">
-                      <p class="price">$5.50</p>
-                    </div>
-                  </div>
-                  
-                  <div class="item-card">
-                    <div class="item-card__image">
-                      <img src="./assets/images/image-baklava-desktop.jpg" alt="Dessert Image" class="product-image">
-                    </div>
-                    <div class="item-card__button">
-                      <a href="#" class="button">
-                        <button class="btn"><img src="./assets/images/icon-add-to-cart.svg" alt=""> Add to Cart</button>
-                      </a>
-                    </div>
-                    <div class="item-card__title">
-                      <p class="title">Baklava</p>
-                    </div>
-                    <div class="item-card__description">
-                      <p class="descriptio">Pistachio Baklava</p>
-                    </div>
-                    <div class="item-card__price">
-                      <p class="price">$4.00</p>
-                    </div>
-                  </div>
-
-                  <div class="item-card">
-                    <div class="item-card__image">
-                      <img src="./assets/images/image-meringue-desktop.jpg" alt="Dessert Image" class="product-image">
-                    </div>
-                    <div class="item-card__button">
-                      <a href="#" class="button">
-                        <button class="btn"><img src="./assets/images/icon-add-to-cart.svg" alt=""> Add to Cart</button>
-                      </a>
-                    </div>
-                    <div class="item-card__title">
-                      <p class="title">Pie</p>
-                    </div>
-                    <div class="item-card__description">
-                      <p class="descriptio">Lemon Meringue Pie</p>
-                    </div>
-                    <div class="item-card__price">
-                      <p class="price">$5.00</p>
-                    </div>
-                  </div>
-                </div>
-              </div>
-
-              <!-- THIRD ROW -->
-
-              <div class="row">
-                <div class="items">
-
-                  <div class="item-card">
-                    <div class="item-card__image">
-                      <img src="./assets/images/image-cake-desktop.jpg" alt="Dessert Image" class="product-image">
-                    </div>
-                    <div class="item-card__button">
-                      <a href="#" class="button">
-                        <button class="btn"><img src="./assets/images/icon-add-to-cart.svg" alt=""> Add to Cart</button>
-                      </a>
-                    </div>
-                    <div class="item-card__title">
-                      <p class="title">Cake</p>
-                    </div>
-                    <div class="item-card__description">
-                      <p class="descriptio">Red Velvet Cake</p>
-                    </div>
-                    <div class="item-card__price">
-                      <p class="price">$4.50</p>
-                    </div>
-                  </div>
-                  
-                  <div class="item-card">
-                    <div class="item-card__image">
-                      <img src="./assets/images/image-brownie-desktop.jpg" alt="Dessert Image" class="product-image">
-                    </div>
-                    <div class="item-card__button">
-                      <a href="#" class="button">
-                        <button class="btn"><img src="./assets/images/icon-add-to-cart.svg" alt=""> Add to Cart</button>
-                      </a>
-                    </div>
-                    <div class="item-card__title">
-                      <p class="title">Brownie</p>
-                    </div>
-                    <div class="item-card__description">
-                      <p class="descriptio">Salted Caramel Brownie</p>
-                    </div>
-                    <div class="item-card__price">
-                      <p class="price">$4.50</p>
-                    </div>
-                  </div>
-
-                  <div class="item-card">
-                    <div class="item-card__image">
-                      <img src="./assets/images/image-panna-cotta-desktop.jpg" alt="Dessert Image" class="product-image">
-                    </div>
-                    <div class="item-card__button">
-                      <a href="#" class="button">
-                        <button class="btn"><img src="./assets/images/icon-add-to-cart.svg" alt=""> Add to Cart</button>
-                      </a>
-                    </div>
-                    <div class="item-card__title">
-                      <p class="title">Panna Cotta</p>
-                    </div>
-                    <div class="item-card__description">
-                      <p class="descriptio">Vanilla Panna Cotta</p>
-                    </div>
-                    <div class="item-card__price">
-                      <p class="price">$6.50</p>
-                    </div>
-                  </div>
-                </div>
-              </div>
-
             </div>
           </div>
         </div>
 
         <div class="main__side">
           <div class="container">
-            <row>
+            <div>
               <div class="sidebar">
                 <div class="sidebar__cart">
-                  <p class="quantity">Your Cart <span id="quantity">(0)</span></p>
+                  <p class="quantity">
+                    Your Cart <span id="quantity">(0)</span>
+                  </p>
                 </div>
                 <div class="sidebar__cart-items">
-                  <img src="./assets/images/illustration-empty-cart.svg" alt="Empty Cart">
+                  <img
+                    src="./assets/images/illustration-empty-cart.svg"
+                    alt="Empty Cart"
+                  />
                   <p class="text">Your added items will appear here</p>
                 </div>
               </div>
-
-
-            </row>
+            </div>
           </div>
         </div>
-    </row>
-  </div>
+      </div>
+    </div>
 
-<!-- 
+    <div class="attribution">
+      Challenge by
+      <a href="https://www.frontendmentor.io?ref=challenge">Frontend Mentor</a>.
+      Coded by <a href="#">Your Name Here</a>.
+    </div>
 
-  
--->
-
-  <div class="attribution">
-    Challenge by <a href="https://www.frontendmentor.io?ref=challenge">Frontend Mentor</a>. 
-    Coded by <a href="#">Your Name Here</a>.
-  </div>
-
-  <!-- Bootstrap JS and dependencies -->
-<script src="node_modules/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
-<script src="src/js/scripts.js"></script>
-</body>
+    <!-- Bootstrap JS and dependencies -->
+    <script src="node_modules/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="src/js/scripts.js"></script>
+  </body>
 </html>
