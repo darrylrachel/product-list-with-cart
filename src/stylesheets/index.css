@@ -496,9 +496,19 @@ textarea:not([rows]) {
 
   button.btn {
     font-size: 14px;
+    transition: 100ms ease-in-out;
   }
 
   /* Button Hover */
+
+  .btn:hover,
+  button.item-card__button.btn:hover {
+    cursor: pointer;
+    color: var(--red);
+    background-color: white;
+    border-color: var(--red);
+    border-width: 1px;
+  }
 
   .item-card__title {
     color: var(--rose_500);
@@ -519,6 +529,10 @@ textarea:not([rows]) {
     margin-top: 2px;
   }
 
+  .price {
+    font-size: 16px;
+  }
+
   .items {
     display: flex;
     flex-direction: row;
@@ -537,6 +551,7 @@ textarea:not([rows]) {
     background-color: white;
     border-radius: 12px;
     padding: 24px;
+    margin-top: 56px;
   }
 
   .quantity {
