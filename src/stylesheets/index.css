@@ -416,7 +416,7 @@ textarea:not([rows]) {
 
   .main__main {
     width: 60%;
-    margin-left: 30px;
+    margin-left: 20px;
     padding-right: 0;
   }
   .main__content-container.container {
@@ -539,7 +539,9 @@ textarea:not([rows]) {
     margin-bottom: 32px;
   }
 
-  /* Sidebar */
+  /*//////////////////////////////////////////////////////////////
+                    SIDEBAR / CART ITEMS
+//////////////////////////////////////////////////////////////*/
 
   .main__side {
     /* border: 1px dashed magenta; */
@@ -550,8 +552,63 @@ textarea:not([rows]) {
     /* border: 1px solid black; */
     background-color: white;
     border-radius: 12px;
-    padding: 24px;
+    padding: 0px;
     margin-top: 56px;
+  }
+
+  .itemName {
+    color: var(--rose_900);
+    font-weight: 400;
+    margin-right: 65px;
+    display: inline;
+  }
+
+  .itemPrice {
+    color: var(--red);
+    /* display: block; */
+    margin-right: 0px;
+    display: inline;
+    text-align: right;
+  }
+
+  .cart-item {
+    display: flex;
+    flex-direction: row;
+    align-items: start;
+    justify-content: right;
+    /* border: 1px solid aqua; */
+    width: 100%;
+    margin-bottom: 20px;
+  }
+
+  button.incrementButton {
+    border-radius: 50px;
+    color: var(--red);
+    width: 30px;
+    height: 30px;
+    border: none;
+    background-color: var(--rose_100);
+    display: inline;
+    padding: 0;
+    float: right;
+    margin-left: 15px;
+  }
+
+  button.decrementButton {
+    margin-left: 15px;
+    border-radius: 50px;
+    color: var(--red);
+    width: 30px;
+    height: 30px;
+    border: none;
+    background-color: var(--rose_100);
+    display: inline;
+    padding: 0;
+    float: right;
+  }
+
+  .incrementButton {
+    /* display: block; */
   }
 
   .quantity {
@@ -564,8 +621,8 @@ textarea:not([rows]) {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    align-items: center;
-    margin-top: 80px;
+    align-items: flex-start;
+    margin-top: 50px;
   }
 
   p.text {

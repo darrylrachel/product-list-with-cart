@@ -17,6 +17,11 @@ function displayProducts(products) {
   productContainer.className = 'items';
   // productContainer.style.border = '1px solid aqua';
 
+  // Assign a unique ID to each product
+  products.forEach((product, index) => {
+  product.id = index + 1; // Example of generating a simple numeric ID
+
+
   products.forEach (product => {
 
     // Creates the product container
@@ -77,11 +82,22 @@ function displayProducts(products) {
 
 /*//////////////////////////////////////////////////////////////
                            STORE CART ITEMS
+
+Store an object that contains both the product and its quantity. This allows us to easily manage the quantity of each item.                           
 //////////////////////////////////////////////////////////////*/
 
 function addToCart(product) {
-  // Add the product to the cart array
-  cart.push(product);
+  // Check if the product is already in the cart
+  let existingProduct = cart.find(item => item.product.id === product.id);
+
+  if ( existingProduct ) {
+    // Increment quantity
+    existingProduct.quantity++;
+  } else {
+    // Add new product with quantity 1
+    cart.push({ product: product, quantity: 1 });
+  }
+
 
   // Update the cart display
   updateCartDisplay();
@@ -90,20 +106,22 @@ function addToCart(product) {
 
 /*//////////////////////////////////////////////////////////////
                            UPDATE CART DISPLAY
+
+Update cart display to display items with quantities                           
 //////////////////////////////////////////////////////////////*/
 
 function updateCartDisplay() {
   const cartQuantity = document.getElementById('quantity');
   const cartItemsContainer = document.querySelector('.sidebar__cart-items');
 
-  // Update the quantity
-  cartQuantity.textContent = `(${cart.length})`;
-
+  // Update the total quantity
+  const totalQuantity = cart.reduce((total, item) => total + item.quantity, 0);
+  cartQuantity.textContent = `(${totalQuantity})`;
+  
   // Clear the cart items container
   cartItemsContainer.innerHTML = '';
 
-  if ( cart.length === 0 ) {
-    
+  if (cart.length === 0) {
     // Show empty cart message if no items
     const emptyCartMessage = document.createElement('p');
     emptyCartMessage.textContent = 'Your added items will appear here';
@@ -112,17 +130,49 @@ function updateCartDisplay() {
     
     // Show cart items
     cart.forEach(item => { // Looping over cart array
+
       const itemElement = document.createElement('div');
       itemElement.className = 'cart-item';
 
       const itemName = document.createElement('p');
-      itemName.textContent = item.name;
+      itemName.textContent = `(${item.quantity}) ${item.product.name}`; //  
+      itemName.classList = 'itemName';
 
       const itemPrice = document.createElement('p');
-      itemPrice.textContent = `$${item.price.toFixed(2)}`;
+      itemPrice.textContent = `$${(item.product.price * item.quantity).toFixed(2)}`;
+      itemPrice.classList = 'itemPrice';
+
+      // const itemQuantity = document.createElement('p');
+      // itemQuantity.textContent = `(${item.quantity})`;
+      
+
+      // Increment button
+      const incrementButton = document.createElement('button');
+      incrementButton.classList = 'incrementButton';
+      incrementButton.textContent = '+';
+      incrementButton.addEventListener('click', () => {
+        item.quantity++;
+        updateCartDisplay();
+      });
+
+      const decrementButton = document.createElement('button');
+      decrementButton.classList = 'decrementButton';
+      decrementButton.textContent = '-';
+      decrementButton.addEventListener('click', () => {
+        if (item.quantity > 1) {
+          item.quantity--;
+          updateCartDisplay();
+        } else {
+          // Remove item from cart if quantity reaches 0
+          cart = cart.filter(cartItem => cartItem.product.id !== item.product.id);
+          updateCartDisplay();
+        }
+      })
 
       itemElement.appendChild(itemName);
       itemElement.appendChild(itemPrice);
+      itemElement.appendChild(incrementButton);
+      itemElement.appendChild(decrementButton);
       cartItemsContainer.appendChild(itemElement);
     });
 
@@ -135,4 +185,4 @@ function updateCartDisplay() {
     // Append the product card to the container
     productContainer.appendChild(productCard);
   });
-}
+})};
