@@ -1,33 +1,28 @@
-console.log('Welcome');
-
-// const linkElement = document.createElement('link');
-// linkElement.rel = 'stylesheet';
-// linkElement.href = '../stylesheets/index.css';
-// document.head.appendChild(linkElement);
-
-
 // Load data.json into webpage
-fetch('../../data.json')
+fetch('./src/data.json')
 .then(response => response.json()) // This tells your webpage to read the list in `data.json`.
 .then(data => displayProducts(data)); // This sends the product data to a function called `displayProducts`.
+
 
 
 // Build product cards dynamically
 
 function displayProducts(products) {
   const productContainer = document.getElementById('product-container');
+  productContainer.className = 'items';
+  // productContainer.style.border = '1px solid aqua';
 
   products.forEach (product => {
 
     // Creates the product container
     const productCard = document.createElement('div');
-    productCard.className = 'item-card product-card';
+    productCard.classList = 'item-card product-card';
 
     // Add the product image
     const img = document.createElement('img');
     img.src = product.image.desktop;
     img.alt = product.name;
-    img.className = 'item-card__image'
+    img.classList = 'item-card__image product-image';
     productCard.appendChild(img);
     
     // Still may need actual image style on border radius
@@ -54,7 +49,6 @@ function displayProducts(products) {
 
     // Add the "Add to Cart" button
     const button = document.createElement('button');
-    button.className = 'add-to-cart';
     button.textContent = 'Add to Cart';
     button.className = 'item-card__button';
     productCard.appendChild(button);
