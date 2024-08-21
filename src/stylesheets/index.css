@@ -223,13 +223,11 @@ textarea:not([rows]) {
   /* Sidebar */
 
   .main__side {
-    /* border: 1px dashed magenta; */
     width: 100%;
     margin-bottom: 60px;
   }
 
   .sidebar {
-    /* border: 1px solid black; */
     background-color: white;
     border-radius: 12px;
     padding: 24px;
@@ -257,6 +255,10 @@ textarea:not([rows]) {
     margin-bottom: 20px;
   }
 }
+
+/*//////////////////////////////////////////////////////////////
+                              Tablets & Up
+//////////////////////////////////////////////////////////////*/
 
 /* Medium devices (tablets, 768px and up) */
 @media (min-width: 768px) {
@@ -293,12 +295,21 @@ textarea:not([rows]) {
     margin-bottom: 80px;
   }
 
-  .item-card {
+  .items {
     display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    margin-bottom: 32px;
+    width: 100%;
+  }
+
+  .item-card {
+    /* display: flex;
     flex-direction: column;
-    width: 33.33%;
+    width: 88%;
+    margin: 0 auto; */
+    width: 30%;
     margin-right: 20px;
-    position: relative;
   }
 
   .item-card__image {
@@ -317,7 +328,7 @@ textarea:not([rows]) {
     background-color: white;
     margin: 0 0;
     text-align: center;
-    position: absolute;
+    /* position: absolute; */
     bottom: 102px;
     left: 30px;
   }
@@ -332,8 +343,6 @@ textarea:not([rows]) {
   button.btn {
     font-size: 14px;
   }
-
-  /* Button Hover */
 
   .item-card__title {
     color: var(--rose_500);
@@ -355,12 +364,6 @@ textarea:not([rows]) {
   .item-card__description,
   .item-card__price {
     margin-top: 2px;
-  }
-
-  .items {
-    display: flex;
-    flex-direction: row;
-    margin-bottom: 32px;
   }
 
   /* Sidebar */
@@ -400,6 +403,10 @@ textarea:not([rows]) {
     margin-bottom: 20px;
   }
 }
+
+/*//////////////////////////////////////////////////////////////
+                            Large Desktops
+//////////////////////////////////////////////////////////////*/
 
 /* Extra large devices (large desktops, 1200px and up) */
 
@@ -539,6 +546,15 @@ textarea:not([rows]) {
     margin-bottom: 32px;
   }
 
+  /* Button Events */
+  .updateQuantityButton-hide {
+    /* hide by default, onClick show */
+  }
+
+  .updateQuantityButton-show {
+    /* onClick show */
+  }
+
   /*//////////////////////////////////////////////////////////////
                     SIDEBAR / CART ITEMS
 //////////////////////////////////////////////////////////////*/
@@ -552,7 +568,7 @@ textarea:not([rows]) {
     /* border: 1px solid black; */
     background-color: white;
     border-radius: 12px;
-    padding: 0px;
+    padding: 40px;
     margin-top: 56px;
   }
 
