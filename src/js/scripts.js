@@ -146,15 +146,29 @@ function updateCartDisplay() {
             );
           updateCartDisplay();
         }
+        // Added code below
+        // const itemSubElement = document.createElement("div");
+        // itemSubElement.className = "sub-cart-detail";
+
+
+
+        // const itemSubName = document.createElement("p");
+        // itemSubName.textContent = `
+        // ${item.product.name}
+        // `;
+        // itemSubName.classList = "itemName";
+
+        // Remove above
       });
 
       
 
-      // itemElement.appendChild(itemAmount);
+      itemElement.appendChild(itemAmount);
       itemElement.appendChild(itemName);
       itemElement.appendChild(itemPrice);
-      // itemElement.appendChild(incrementButton);
-      // itemElement.appendChild(decrementButton);
+      itemElement.appendChild(incrementButton);
+      itemElement.appendChild(decrementButton);
+      // itemElement.appendChild(itemSubElement);
       cartItemsContainer.appendChild(itemElement);
 
 ///////////////////////////////////////////////////////////////////

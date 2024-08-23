@@ -1,67 +1,76 @@
 // Load data.json into webpage
-fetch('./src/data.json')
-  .then((response) => response.json()) // read the list in `data.json`.
-  .then((data) => displayProducts(data)); // sends product data `displayProducts`.
+fetch("./src/data.json")
+.then((response) => response.json()) // read the list in `data.json`.
+.then((data) => displayProducts(data)); // sends product data `displayProducts`.
+
+/*//////////////////////////////////////////////////////////////
+                        FETCHES JSON FILE
+//////////////////////////////////////////////////////////////*/
 
 let cart = []; // Keep track of the number of cart items
 
+/*//////////////////////////////////////////////////////////////
+                      CREATES EMPTY ARRAY
+//////////////////////////////////////////////////////////////*/
+
+
 function displayProducts(products) {
-  const productContainer = document.getElementById('product-container');
-  productContainer.className = 'items';
+  const productContainer = document.getElementById("product-container");
+  productContainer.className = "items";
 
   products.forEach((product, index) => {
     product.id = index + 1; // Example of generating a simple numeric ID
 
     // Creates the product container
-    const productCard = document.createElement('div');
-    productCard.classList = 'item-card product-card';
+    const productCard = document.createElement("div");
+    productCard.classList = "item-card product-card";
 
     // Add the product image
-    const img = document.createElement('img');
+    const img = document.createElement("img");
     img.src = product.image.desktop;
     img.alt = product.name;
-    img.classList = 'item-card__image product-image';
+    img.classList = "item-card__image product-image";
     productCard.appendChild(img);
 
     // Add the product category
-    const h3 = document.createElement('p');
+    const h3 = document.createElement("p");
     h3.textContent = product.category;
-    h3.className = 'item-card__title';
+    h3.className = "item-card__title";
     productCard.appendChild(h3);
 
     // Add the product name
-    const desc = document.createElement('p');
+    const desc = document.createElement("p");
     desc.textContent = product.name;
-    desc.className = 'item-card__description';
+    desc.className = "item-card__description";
     productCard.appendChild(desc);
 
     // Add the product price
-    const p = document.createElement('p');
+    const p = document.createElement("p");
     p.textContent = `$${product.price.toFixed(2)}`;
-    p.classList = 'item-card__price price';
+    p.classList = "item-card__price price";
     productCard.appendChild(p);
 
     // Add the "Add to Cart" button
-    const button = document.createElement('button');
-    button.classList = 'item-card__button btn';
+    const button = document.createElement("button");
+    button.classList = "item-card__button btn";
 
     // Create the img element for the cart icon
-    const icon = document.createElement('img');
-    icon.src = './assets/images/icon-add-to-cart.svg'; // Path to your SVG file
-    icon.alt = 'Cart Icon'; // Accessibility text
-    icon.style.width = '16px'; // Adjust size as needed
-    icon.style.height = '16px';
+    const icon = document.createElement("img");
+    icon.src = "./assets/images/icon-add-to-cart.svg"; // Path to your SVG file
+    icon.alt = "Cart Icon"; // Accessibility text
+    icon.style.width = "16px"; // Adjust size as needed
+    icon.style.height = "16px";
 
     // Create a span for the text
-    const text = document.createElement('span');
-    text.textContent = 'Add to Cart';
+    const text = document.createElement("span");
+    text.textContent ="Add to Cart";
 
     // Append img and text to button
     button.appendChild(icon);
     button.appendChild(text);
 
     // Add click event to button
-    button.addEventListener('click', () => addToCart(product));
+    button.addEventListener("click", () => addToCart(product));
 
     // Append button to product card
     productCard.appendChild(button);
@@ -88,80 +97,132 @@ function addToCart(product) {
 /////////////////////////////////////////
 
 function updateCartDisplay() {
-  const cartQuantity = document.getElementById('quantity');
-  const cartItemsContainer = document.querySelector('.sidebar__cart-items');
-  const itemContainer = document.querySelector('item-container');
+  const cartQuantity = document.getElementById("quantity");
+  const cartItemsContainer = document.querySelector(".sidebar__cart-items");
 
   const totalQuantity = cart.reduce((total, item) => total + item.quantity, 0);
   cartQuantity.textContent = `(${totalQuantity})`;
 
-  cartItemsContainer.innerHTML = '';
+  cartItemsContainer.innerHTML = "";
 
   if (cart.length === 0) {
-    const emptyCartMessage = document.createElement('p');
-    emptyCartMessage.textContent = 'Your added items will appear here';
-    emptyCartMessage.classList = 'text';
+    const emptyCartMessage = document.createElement("p");
+    emptyCartMessage.textContent = "Your added items will appear here";
+    emptyCartMessage.classList ='text';
     cartItemsContainer.appendChild(emptyCartMessage);
   } else {
-      cart.forEach((item) => {
-        const itemElement = document.createElement('div');
-        itemElement.className = 'cart-item';
+    cart.forEach((item) => {
 
-        const itemName = document.createElement('p');
-        itemName.textContent = `
-        ${item.product.name}
-        `;
-        itemName.classList = 'itemName';
+      const itemElement = document.createElement("div");
+      itemElement.className = "cart-item";
 
-        const itemAmount = document.createElement('p');
-        itemAmount.textContent = `${item.quantity}x`;
-        itemAmount.classList = 'itemAmount';
-        console.log(`${item.quantity}`);
 
-        const itemPrice = document.createElement('p');
-        itemPrice.textContent = `
-        $${(item.product.price * item.quantity).toFixed(2)}
-        `;
-        itemPrice.classList = 'itemPrice';
+      const itemName = document.createElement("p");
+      itemName.textContent = `
+      ${item.product.name}
+      `;
+      itemName.classList = "itemName";
 
-        const incrementButton = document.createElement('button');
-        incrementButton.classList = 'incrementButton';
-        incrementButton.textContent = '+';
-        incrementButton.addEventListener('click', () => {
-          item.quantity++;
+      
+      // const itemPrice = document.createElement("p");
+      // itemPrice.textContent = `
+      // $${(item.product.price * item.quantity).toFixed(2)}
+      // `;
+      // itemPrice.classList = "itemPrice";
+
+      // const incrementButton = document.createElement("button");
+      // incrementButton.classList = "incrementButton";
+      // incrementButton.textContent = "+";
+      // incrementButton.addEventListener("click", () => {
+      //   item.quantity++;
+      //   updateCartDisplay();
+      // });
+
+      // const decrementButton = document.createElement("button");
+      // decrementButton.classList = "decrementButton";
+      // decrementButton.textContent = "-";
+      // decrementButton.addEventListener("click", () => {
+      //   if (item.quantity > 1) {
+      //     item.quantity--;
+      //     updateCartDisplay();
+      //   } else {
+      //     cart = cart.filter(
+      //       (cartItem) => cartItem.product.id !== item.product.id
+      //       );
+      //     updateCartDisplay();
+      //   }
+
+        
+  
+      // });
+
+      // updateCartDisplay();
+
+      // Second row
+
+
+        const secondRow = document.createElement("div");
+        secondRow.classList = "secondRow";
+
+        
+        const cartQuantity = document.createElement("p");
+        cartQuantity.classList = "cartQuantity";
+        cartQuantity.textContent = `${item.quantity}x`;
+
+        const costPerItem = document.createElement("p");
+        costPerItem.classList = "costPerItem";
+        costPerItem.textContent = `@${(item.product.price).toFixed(2)}`;
+
+        const itemTotal = document.createElement("p");
+        itemTotal.classList = "itemTotal";
+        itemTotal.textContent = `
+      $${(item.product.price * item.quantity).toFixed(2)}
+      `;
+
+      // Remove Item from cart
+        const closeButton = document.createElement("button");
+        closeButton.classList = "closeButton";
+
+        // Create the img element for the x icon
+        const icon = document.createElement("img");
+        icon.src = "../../assets/images/icon-remove-item.svg"; // Path to your SVG file
+        icon.alt = "Close Icon"; // Accessibility text
+        icon.style.width = "20px"; // Adjust size as needed
+        icon.style.height = "10px";
+        icon.classList = "closeButtonImg"
+
+        // Append img and text to button
+        closeButton.appendChild(icon);
+
+        // Add click event to button
+        closeButton.addEventListener("click", function() {
+          // Filter out the item from the cart array
+          cart = cart.filter((cartItem) => cartItem.product.id !== item.product.id);
+          
+          // Update the cart display to reflect the removal
           updateCartDisplay();
-        });
-
-        const decrementButton = document.createElement('button');
-        decrementButton.classList = 'decrementButton';
-        decrementButton.textContent = '-';
-        decrementButton.addEventListener('click', () => {
-          if (item.quantity > 1) {
-            item.quantity--;
-            updateCartDisplay();
-          } else {
-            cart = cart.filter(
-              (cartItem) => cartItem.product.id !== item.product.id
-            );
-            updateCartDisplay();
-          }
-        });
-        itemContainer.appendChild(itemDetailAmount);
-        itemContainer.appendChild(itemDetailPrice);
-        itemContainer.appendChild(itemDetails);
-        // itemDetails.appendChild(itemContainer);
-        itemElement.appendChild(itemName);
-        // itemElement.appendChild(itemPrice);
-        itemElement.appendChild(incrementButton);
-        itemElement.appendChild(decrementButton);
-        cartItemsContainer.appendChild(itemElement);
-      });
-    }
-}
-
-/*
-
-How can I wrap elements inside of a div
+        })
 
 
-*/
+      // itemElement.appendChild(itemAmount);
+      itemElement.appendChild(itemName);
+      // itemElement.appendChild(itemPrice);
+      // itemElement.appendChild(incrementButton);
+      // itemElement.appendChild(decrementButton);
+     
+    
+      secondRow.appendChild(cartQuantity);
+      secondRow.appendChild(costPerItem);
+      secondRow.appendChild(itemTotal);
+      // secondRow.appendChild(costPerItem);
+       // Second row
+      cartItemsContainer.appendChild(secondRow);
+
+      // Append button to cart
+      // secondRow.appendChild(closeButton);
+      
+      cartItemsContainer.appendChild(itemElement);
+      itemElement.appendChild(closeButton);
+      cartItemsContainer.appendChild(secondRow);
+    })
+}}
