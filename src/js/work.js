@@ -49,7 +49,7 @@ function displayProducts(products) {
     p.textContent = `$${product.price.toFixed(2)}`;
     p.classList = "item-card__price price";
     productCard.appendChild(p);
-
+/*
     // Add the "Add to Cart" button
     const button = document.createElement("button");
     button.classList = "item-card__button btn";
@@ -74,11 +74,97 @@ function displayProducts(products) {
 
     // Append button to product card
     productCard.appendChild(button);
+*/
+
+
+
+
+    // New Code
+    if (cart.length === 0) {
+  // Add the "Add to Cart" button
+  const button = document.createElement("button");
+  button.classList = "item-card__button btn";
+
+  // Create the img element for the cart icon
+  const icon = document.createElement("img");
+  icon.src = "./assets/images/icon-add-to-cart.svg"; // Path to your SVG file
+  icon.alt = "Cart Icon"; // Accessibility text
+  icon.style.width = "16px"; // Adjust size as needed
+  icon.style.height = "16px";
+
+  // Create a span for the text
+  const text = document.createElement("span");
+  text.textContent ="Add to Cart";
+
+  // Append img and text to button
+  button.appendChild(icon);
+  button.appendChild(text);
+
+  // Add click event to button
+  button.addEventListener("click", () => addToCart(product));
+
+  // Append button to product card
+  productCard.appendChild(button);
+    } else {
+      cart.forEach((item) => {
+        const updateQuantityButton = document.createElement("button");
+        updateQuantityButton.classList = "updateQuantityButton item-card__button ";
+        updateQuantityButton.addEventListener("click", () => {
+          item.classList.add("updateQuantityButton-show");
+          console.log("clicked");
+        })
+
+        const updateIncrement = document.createElement('img');
+        updateIncrement.classList = 'incrementButton';
+        updateIncrement.src = "../../assets/images/icon-increment-quantity.svg";
+        updateIncrement.addEventListener('click', () => {
+          item.quantity++;
+          updateCartDisplay();
+        });
+
+        // Create a span for the text
+        const updateText = document.createElement("p");
+        updateText.textContent ="4"; // update quantity
+
+
+        const updateDecrement = document.createElement('img');
+        updateDecrement.classList = 'decrementButton';
+        updateDecrement.textContent = "../../assets/images/icon-decrement-quantity.svg";
+        updateDecrement.addEventListener('click', () => {
+          if (item.quantity > 1) {
+            item.quantity--;
+            updateCartDisplay();
+          } else {
+            cart = cart.filter(cartItem => cartItem.product.id !== item.product.id);
+            updateCartDisplay();
+          }
+        });
+
+
+        
+      })
+      updateQuantityButton.appendChild(updateText);
+        updateQuantityButton.appendChild(updateDecrement);
+        updateQuantityButton.appendChild(updateIncrement);  
+        productCard.appendChild(updateQuantityButton);
+    };
+    
+  
+    // End new code
+
+    
+
+
+
+    
+
+
+    //  End Update Cart Button
 
     // Append the product card to the container
     productContainer.appendChild(productCard);
   }); // removed - )
-}
+
 
 // Function to add products to cart
 function addToCart(product) {
@@ -90,7 +176,15 @@ function addToCart(product) {
     cart.push({ product: product, quantity: 1 });
   }
 
+  // Show the updateQuantityButton for this product
+  const productCard = document.querySelector(`.item-card[data-product-id="${product.id}"]`);
+  const updateQuantityButton = document.querySelector('.updateQuantityButton');
+  if (updateQuantityButton) {
+    updateQuantityButton.style.display = 'block'; // Show the button
+  }
+
   updateCartDisplay();
+  }
 }
 
 // Function to update cart display
@@ -100,7 +194,10 @@ function updateCartDisplay() {
   const cartQuantity = document.getElementById("quantity");
   const cartItemsContainer = document.querySelector(".sidebar__cart-items");
 
+  // Calculate total quantity and total price
   const totalQuantity = cart.reduce((total, item) => total + item.quantity, 0);
+  const totalPrice = cart.reduce((total, item) => total + (item.product.price * item.quantity), 0);
+
   cartQuantity.textContent = `(${totalQuantity})`;
 
   cartItemsContainer.innerHTML = "";
@@ -124,43 +221,9 @@ function updateCartDisplay() {
       itemName.classList = "itemName";
 
       
-      // const itemPrice = document.createElement("p");
-      // itemPrice.textContent = `
-      // $${(item.product.price * item.quantity).toFixed(2)}
-      // `;
-      // itemPrice.classList = "itemPrice";
-
-      // const incrementButton = document.createElement("button");
-      // incrementButton.classList = "incrementButton";
-      // incrementButton.textContent = "+";
-      // incrementButton.addEventListener("click", () => {
-      //   item.quantity++;
-      //   updateCartDisplay();
-      // });
-
-      // const decrementButton = document.createElement("button");
-      // decrementButton.classList = "decrementButton";
-      // decrementButton.textContent = "-";
-      // decrementButton.addEventListener("click", () => {
-      //   if (item.quantity > 1) {
-      //     item.quantity--;
-      //     updateCartDisplay();
-      //   } else {
-      //     cart = cart.filter(
-      //       (cartItem) => cartItem.product.id !== item.product.id
-      //       );
-      //     updateCartDisplay();
-      //   }
-
-        
-  
-      // });
-
-      // updateCartDisplay();
-
-      // Second row
-
-
+      /*//////////////////////////////////////////////////////////////
+                              SECOND ROW
+      //////////////////////////////////////////////////////////////*/
         const secondRow = document.createElement("div");
         secondRow.classList = "secondRow";
 
@@ -176,10 +239,10 @@ function updateCartDisplay() {
         const itemTotal = document.createElement("p");
         itemTotal.classList = "itemTotal";
         itemTotal.textContent = `
-      $${(item.product.price * item.quantity).toFixed(2)}
-      `;
+        $${(item.product.price * item.quantity).toFixed(2)}
+        `;
 
-      // Remove Item from cart
+        // Remove Item from cart
         const closeButton = document.createElement("button");
         closeButton.classList = "closeButton";
 
@@ -204,25 +267,72 @@ function updateCartDisplay() {
         })
 
 
-      // itemElement.appendChild(itemAmount);
       itemElement.appendChild(itemName);
-      // itemElement.appendChild(itemPrice);
-      // itemElement.appendChild(incrementButton);
-      // itemElement.appendChild(decrementButton);
-     
-    
       secondRow.appendChild(cartQuantity);
       secondRow.appendChild(costPerItem);
       secondRow.appendChild(itemTotal);
-      // secondRow.appendChild(costPerItem);
-       // Second row
-      cartItemsContainer.appendChild(secondRow);
-
-      // Append button to cart
-      // secondRow.appendChild(closeButton);
       
       cartItemsContainer.appendChild(itemElement);
       itemElement.appendChild(closeButton);
       cartItemsContainer.appendChild(secondRow);
     })
-}}
+
+    /*//////////////////////////////////////////////////////////////
+                               THIRD ROW
+    //////////////////////////////////////////////////////////////*/
+
+    // After the loop, create thirdRow for displaying the total order price
+    const thirdRow = document.createElement("div");
+    thirdRow.classList = "thirdRow";
+    // thirdRow.style.border = "1px solid blue";
+
+    const orderTotalText = document.createElement("p");
+    orderTotalText.classList = "orderTotalText";
+    orderTotalText.textContent = `Order Total`;
+
+    const orderTotal = document.createElement("p");
+    orderTotal.classList = "orderTotal";
+    orderTotal.textContent = `$${totalPrice.toFixed(2)}`;
+
+    // Append elements to thirdRow
+    thirdRow.appendChild(orderTotalText);
+    thirdRow.appendChild(orderTotal);
+
+    // Append thirdRow to cartItemsContainer outside the loop
+    cartItemsContainer.appendChild(thirdRow);
+
+    /*//////////////////////////////////////////////////////////////
+                              CHECKOUT ROW
+    //////////////////////////////////////////////////////////////*/
+
+    const fourthRow = document.createElement("div")
+    fourthRow.classList = "fourthRow";
+
+    const carbonImg = document.createElement("img");
+    carbonImg.src = "../../assets/images/icon-carbon-neutral.svg";
+    carbonImg.style.width = "20px";
+    carbonImg.style.height = "20px";
+    carbonImg.alt = "Carbon-neutral";
+    carbonImg.classList = "carbon-neutrl";
+
+    const carbonDelivery = document.createElement("p");
+    carbonDelivery.textContent = `
+    This is a carbon-neutral delivery
+    `;
+
+    fourthRow.appendChild(carbonImg)
+    fourthRow.appendChild(carbonDelivery);
+    cartItemsContainer.appendChild(fourthRow);
+
+    // CHECKOUT BUTTON
+    const fifthRow = document.createElement("div");
+    fifthRow.classList = "fifthRow";
+    
+
+    const checkoutButton = document.createElement("button");
+    checkoutButton.classList = "checkoutButton";
+    checkoutButton.textContent = "Confirm Order";
+
+    fifthRow.appendChild(checkoutButton);
+    cartItemsContainer.appendChild(fifthRow);
+}};

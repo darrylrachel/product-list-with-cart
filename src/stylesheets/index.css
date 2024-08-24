@@ -521,6 +521,17 @@ textarea:not([rows]) {
     border-width: 1px;
   }
 
+  /* Update Cart Button */
+  .updateQuantityButton {
+    display: none;
+  }
+
+  .updateQuantityButton-show {
+    display: flex;
+    justify-content: space-between;
+    background-color: var(--red);
+  }
+
   .item-card__title {
     color: var(--rose_500);
   }
@@ -650,11 +661,12 @@ textarea:not([rows]) {
 
   .closeButton {
     border-radius: 50px;
-    width: 28px;
-    height: 28px;
+    width: 22px; /* 28x28 */
+    height: 22px;
     border: 1px solid var(--rose_400);
     text-align: center;
     margin: 0;
+    background-color: #fff;
   }
 
   .cartQuantity,
@@ -670,19 +682,72 @@ textarea:not([rows]) {
 
   .costPerItem {
     color: var(--rose_500);
+    letter-spacing: 1.2px;
   }
 
   .itemTotal {
     color: var(--rose_500);
     font-weight: 600;
     font-size: 14px;
+    letter-spacing: 1.2px;
+  }
+
+  .thirdRow {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    padding-top: 20px;
+  }
+
+  .orderTotalText {
+    color: var(--rose_900);
+    font-size: 14px;
+    font-weight: 400;
+  }
+
+  .orderTotal {
+    font-size: 18px;
+    color: var(--rose_900);
+    font-weight: 600;
+  }
+
+  .fourthRow {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    background-color: var(--rose_50);
+    padding: 20px 42px;
+    margin: 20px auto;
+    border-radius: 8px;
+    font-size: 14px;
+  }
+
+  img.carbon-neutrl {
+    margin-right: 6px;
+  }
+
+  .fifthRow {
+    align-items: center;
+    margin: 20px auto;
+  }
+
+  button.checkoutButton {
+    border-radius: 50px;
+    border: none;
+    padding: 16px 90px;
+    background-color: var(--red);
+    color: #fff;
+    font-size: 16px;
   }
 }
 
 /* Button Events */
 .updateQuantityButton-hide {
   /* hide by default, onClick show */
-  opacity: 0;
+  display: none;
 }
 
 .updateQuantityButton-show {
