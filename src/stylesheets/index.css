@@ -522,14 +522,28 @@ textarea:not([rows]) {
   }
 
   /* Update Cart Button */
-  .updateQuantityButton {
-    display: none;
+  .updateQuantityButton.item-card__button {
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    background-color: var(--red);
+    border-radius: 50px;
+    border: none;
+    text-align: center;
+    color: #fff;
+    font-size: 14px;
+    width: 150px;
+    height: 40px;
   }
 
-  .updateQuantityButton-show {
-    display: flex;
-    justify-content: space-between;
+  .updateDecrementButton,
+  .updateIncrementButton {
+    border-radius: 50px;
+    border: 1px solid #fff;
     background-color: var(--red);
+    color: #fff;
+    width: 22px;
+    height: 22px;
   }
 
   .item-card__title {
