@@ -287,8 +287,6 @@ textarea:not([rows]) {
     flex-direction: row;
   }
 
-  
-
   p.text {
     color: var(--rose_500);
     font-weight: var(--fw_600);
@@ -386,10 +384,12 @@ textarea:not([rows]) {
   button.checkoutButton {
     border-radius: 50px;
     border: none;
-    padding: 16px 90px;
+    padding: 0px;
     background-color: var(--red);
     color: #fff;
     font-size: 16px;
+    width: 200px;
+    height: 50px;
   }
 
   /*//////////////////////////////////////////////*/
@@ -587,8 +587,19 @@ textarea:not([rows]) {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    align-items: center;
+    align-items: flex-start;
     margin-top: 80px;
+  }
+
+  .cart-item {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    justify-content: space-between;
+  }
+
+  p.itemName {
+    margin-right: 300px;
   }
 
   p.text {
@@ -597,6 +608,18 @@ textarea:not([rows]) {
     font-size: 14px;
     margin-top: 20px;
     margin-bottom: 20px;
+  }
+
+  button.closeButton {
+    display: flex;
+    align-items: center;
+  }
+}
+
+@media (min-width: 1024px) {
+  .main__row {
+    display: flex;
+    flex-direction: row;
   }
 }
 
