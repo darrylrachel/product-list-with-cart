@@ -9,9 +9,6 @@
   --rose_400: hsl(7, 20%, 60%);
   --rose_500: hsl(12, 20%, 44%);
   --rose_900: hsl(14, 65%, 9%);
-
-  --product_names: 16px;
-
   --red_hat: 'Red Hat Text', sans-serif;
   --fw_400: 400;
   --fw_600: 600;
@@ -195,6 +192,207 @@ textarea:not([rows]) {
   button.btn {
     font-size: 14px;
   }
+  button.item-card__button.btn.addToCart {
+    width: 160px;
+    height: 40px;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .cart-image {
+    margin-left: 10px;
+  }
+
+  /* Update Cart Button */
+  .updateQuantityButton.item-card__button {
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    background-color: var(--red);
+    border-radius: 50px;
+    border: none;
+    text-align: center;
+    color: #fff;
+    font-size: 14px;
+    width: 150px;
+    height: 40px;
+  }
+
+  .quantityDisplay {
+    font-size: 14px;
+  }
+
+  button.item-card__button.btn.addToCart {
+    display: flex;
+    flex-direction: row-reverse;
+    justify-content: center;
+    align-items: center;
+    margin: 0 auto;
+    text-align: center;
+  }
+
+  .updateDecrementButton,
+  .updateIncrementButton {
+    border-radius: 50px;
+    border: 1px solid #fff;
+    background-color: var(--red);
+    color: #fff;
+    width: 22px;
+    height: 22px;
+  }
+
+  /* Sidebar quantity */
+
+  .sidebar {
+    background-color: white;
+    border-radius: 12px;
+    padding: 24px 0px;
+  }
+
+  .quantity {
+    color: var(--red);
+    font-size: 24px;
+    font-weight: var(--fw_600);
+  }
+
+  #quantity {
+    color: var(--red);
+    font-size: 24px;
+    font-weight: var(--fw_600);
+    margin-right: 8px;
+  }
+
+  p.itemName {
+    margin-right: 60px;
+  }
+
+  .secondRowQuantity {
+    color: var(--red);
+    margin-right: 8px;
+  }
+
+  .sidebar__cart-items {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    margin-top: 20px;
+    padding-bottom: 40px;
+  }
+
+  .cart-item {
+    display: flex;
+    flex-direction: row;
+  }
+
+  
+
+  p.text {
+    color: var(--rose_500);
+    font-weight: var(--fw_600);
+    font-size: 14px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+  }
+
+  .secondRow {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    width: 100%;
+    margin-top: 5px;
+    border-bottom: 1px solid var(--rose_100);
+    padding-bottom: 10px;
+  }
+
+  .closeButton {
+    border-radius: 50px;
+    width: 22px; /* 28x28 */
+    height: 22px;
+    border: 1px solid var(--rose_400);
+    text-align: center;
+    margin: 0;
+    background-color: #fff;
+  }
+
+  /* CHECK HERE TOO */
+  .cartQuantity,
+  .costPerItem {
+    margin-right: 15px;
+    font-size: 14px;
+  }
+
+  .cartQuantity {
+    color: var(--red);
+    font-weight: 600;
+  }
+
+  .costPerItem {
+    color: var(--rose_500);
+    letter-spacing: 1.2px;
+  }
+
+  .itemTotal {
+    color: var(--rose_500);
+    font-weight: 600;
+    font-size: 14px;
+    letter-spacing: 1.2px;
+  }
+
+  .thirdRow {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    padding-top: 20px;
+  }
+
+  .orderTotalText {
+    color: var(--rose_900);
+    font-size: 14px;
+    font-weight: 400;
+  }
+
+  .orderTotal {
+    font-size: 18px;
+    color: var(--rose_900);
+    font-weight: 600;
+  }
+
+  .fourthRow {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    background-color: var(--rose_50);
+    padding: 20px 42px;
+    margin: 20px auto;
+    border-radius: 8px;
+    font-size: 14px;
+  }
+
+  img.carbon-neutrl {
+    margin-right: 6px;
+  }
+
+  .fifthRow {
+    align-items: center;
+    margin: 20px auto;
+  }
+
+  button.checkoutButton {
+    border-radius: 50px;
+    border: none;
+    padding: 16px 90px;
+    background-color: var(--red);
+    color: #fff;
+    font-size: 16px;
+  }
+
+  /*//////////////////////////////////////////////*/
 
   /* Button Hover */
 
@@ -253,6 +451,7 @@ textarea:not([rows]) {
     font-size: 14px;
     margin-top: 20px;
     margin-bottom: 20px;
+    text-align: center;
   }
 }
 
@@ -328,7 +527,6 @@ textarea:not([rows]) {
     background-color: white;
     margin: 0 0;
     text-align: center;
-    /* position: absolute; */
     bottom: 102px;
     left: 30px;
   }
@@ -369,13 +567,11 @@ textarea:not([rows]) {
   /* Sidebar */
 
   .main__side {
-    /* border: 1px dashed magenta; */
     width: 100%;
     margin-bottom: 60px;
   }
 
   .sidebar {
-    /* border: 1px solid black; */
     background-color: white;
     border-radius: 12px;
     padding: 24px;
@@ -413,6 +609,15 @@ textarea:not([rows]) {
 @media (min-width: 1200px) {
   .main.container-fluid {
     width: 100%;
+  }
+
+  .container,
+  .container-lg,
+  .container-md,
+  .container-sm,
+  .container-xl {
+    max-width: 1140px;
+    padding: 0;
   }
 
   .main__row {
@@ -517,6 +722,44 @@ textarea:not([rows]) {
     border-width: 1px;
   }
 
+  /* Update Cart Button */
+  .updateQuantityButton.item-card__button {
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    background-color: var(--red);
+    border-radius: 50px;
+    border: none;
+    text-align: center;
+    color: #fff;
+    font-size: 14px;
+    width: 150px;
+    height: 40px;
+  }
+
+  .quantityDisplay {
+    font-size: 14px;
+  }
+
+  button.item-card__button.btn.addToCart {
+    display: flex;
+    flex-direction: row-reverse;
+    justify-content: center;
+    align-items: center;
+    margin: 0 auto;
+    text-align: center;
+  }
+
+  .updateDecrementButton,
+  .updateIncrementButton {
+    border-radius: 50px;
+    border: 1px solid #fff;
+    background-color: var(--red);
+    color: #fff;
+    width: 22px;
+    height: 22px;
+  }
+
   .item-card__title {
     color: var(--rose_500);
   }
@@ -546,42 +789,31 @@ textarea:not([rows]) {
     margin-bottom: 32px;
   }
 
-  /* Button Events */
-  .updateQuantityButton-hide {
-    /* hide by default, onClick show */
-  }
-
-  .updateQuantityButton-show {
-    /* onClick show */
-  }
-
   /*//////////////////////////////////////////////////////////////
                     SIDEBAR / CART ITEMS
 //////////////////////////////////////////////////////////////*/
 
   .main__side {
-    /* border: 1px dashed magenta; */
-    width: 36%;
+    width: 38%;
+    padding-left: 0px;
   }
 
   .sidebar {
-    /* border: 1px solid black; */
     background-color: white;
     border-radius: 12px;
-    padding: 40px;
+    padding: 30px 20px 0 20px;
     margin-top: 56px;
   }
 
   .itemName {
     color: var(--rose_900);
-    font-weight: 400;
+    font-weight: 600;
     margin-right: 65px;
     display: inline;
   }
 
   .itemPrice {
     color: var(--red);
-    /* display: block; */
     margin-right: 0px;
     display: inline;
     text-align: right;
@@ -590,11 +822,10 @@ textarea:not([rows]) {
   .cart-item {
     display: flex;
     flex-direction: row;
-    align-items: start;
-    justify-content: right;
-    /* border: 1px solid aqua; */
+    align-items: center;
+    justify-content: space-between;
     width: 100%;
-    margin-bottom: 20px;
+    margin-top: 20px;
   }
 
   button.incrementButton {
@@ -623,22 +854,32 @@ textarea:not([rows]) {
     float: right;
   }
 
-  .incrementButton {
-    /* display: block; */
-  }
-
+  /* Sidebar quantity */
   .quantity {
     color: var(--red);
     font-size: 24px;
     font-weight: var(--fw_600);
   }
 
+  #quantity {
+    color: var(--red);
+    font-size: 24px;
+    font-weight: var(--fw_600);
+    margin-right: 8px;
+  }
+
+  .secondRowQuantity {
+    color: var(--red);
+    margin-right: 8px;
+  }
+
   .sidebar__cart-items {
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
+    justify-content: center;
     align-items: flex-start;
-    margin-top: 50px;
+    margin-top: 20px;
+    padding-bottom: 40px;
   }
 
   p.text {
@@ -647,5 +888,100 @@ textarea:not([rows]) {
     font-size: 14px;
     margin-top: 20px;
     margin-bottom: 20px;
+  }
+
+  .secondRow {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    width: 100%;
+    margin-top: 5px;
+    border-bottom: 1px solid var(--rose_100);
+    padding-bottom: 10px;
+  }
+
+  .closeButton {
+    border-radius: 50px;
+    width: 22px; /* 28x28 */
+    height: 22px;
+    border: 1px solid var(--rose_400);
+    text-align: center;
+    margin: 0;
+    background-color: #fff;
+  }
+
+  /* CHECK HERE TOO */
+  .cartQuantity,
+  .costPerItem {
+    margin-right: 15px;
+    font-size: 14px;
+  }
+
+  .cartQuantity {
+    color: var(--red);
+    font-weight: 600;
+  }
+
+  .costPerItem {
+    color: var(--rose_500);
+    letter-spacing: 1.2px;
+  }
+
+  .itemTotal {
+    color: var(--rose_500);
+    font-weight: 600;
+    font-size: 14px;
+    letter-spacing: 1.2px;
+  }
+
+  .thirdRow {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    padding-top: 20px;
+  }
+
+  .orderTotalText {
+    color: var(--rose_900);
+    font-size: 14px;
+    font-weight: 400;
+  }
+
+  .orderTotal {
+    font-size: 18px;
+    color: var(--rose_900);
+    font-weight: 600;
+  }
+
+  .fourthRow {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    background-color: var(--rose_50);
+    padding: 20px 42px;
+    margin: 20px auto;
+    border-radius: 8px;
+    font-size: 14px;
+  }
+
+  img.carbon-neutrl {
+    margin-right: 6px;
+  }
+
+  .fifthRow {
+    align-items: center;
+    margin: 20px auto;
+  }
+
+  button.checkoutButton {
+    border-radius: 50px;
+    border: none;
+    padding: 16px 90px;
+    background-color: var(--red);
+    color: #fff;
+    font-size: 16px;
   }
 }

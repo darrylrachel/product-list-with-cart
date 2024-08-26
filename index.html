@@ -12,7 +12,7 @@
       href="./assets/images/favicon-32x32.png"
     />
 
-    <title>TRBL LABS | Product list with cart</title>
+    <title>Dessert Shopping cart</title>
 
     <!-- Bootstrap CSS -->
     <link
@@ -22,8 +22,6 @@
 
     <!-- Custom CSS -->
     <link rel="stylesheet" href="src/stylesheets/index.css" />
-
-    <!-- Feel free to remove these styles or customise in your own stylesheet 👍 -->
     <style>
       .attribution {
         font-size: 11px;
@@ -35,7 +33,6 @@
     </style>
   </head>
   <body>
-    
     <div class="main container-fluid">
       <div class="row main__row">
         <div class="main__main">
@@ -60,14 +57,16 @@
               <div class="sidebar">
                 <div class="sidebar__cart">
                   <p class="quantity">
-                    Your Cart <span id="quantity">(0)</span>
+                    Your Cart <span id="cartQuantity">(0)</span>
                   </p>
                 </div>
-                <div class="sidebar__cart-items">
+                <div class="sidebar__cart-items" id="item-container">
                   <img
                     src="./assets/images/illustration-empty-cart.svg"
                     alt="Empty Cart"
+                    style="margin: 0 auto; margin-top: 20px"
                   />
+
                   <p class="text">Your added items will appear here</p>
                 </div>
               </div>
@@ -75,14 +74,6 @@
           </div>
         </div>
       </div>
-    </div>
-
-    
-
-    <div class="attribution">
-      Challenge by
-      <a href="https://www.frontendmentor.io?ref=challenge">Frontend Mentor</a>.
-      Coded by <a href="#">Your Name Here</a>.
     </div>
 
     <!-- Bootstrap JS and dependencies -->
