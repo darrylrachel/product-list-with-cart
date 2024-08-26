@@ -192,6 +192,207 @@ textarea:not([rows]) {
   button.btn {
     font-size: 14px;
   }
+  button.item-card__button.btn.addToCart {
+    width: 160px;
+    height: 40px;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .cart-image {
+    margin-left: 10px;
+  }
+
+  /* Update Cart Button */
+  .updateQuantityButton.item-card__button {
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    background-color: var(--red);
+    border-radius: 50px;
+    border: none;
+    text-align: center;
+    color: #fff;
+    font-size: 14px;
+    width: 150px;
+    height: 40px;
+  }
+
+  .quantityDisplay {
+    font-size: 14px;
+  }
+
+  button.item-card__button.btn.addToCart {
+    display: flex;
+    flex-direction: row-reverse;
+    justify-content: center;
+    align-items: center;
+    margin: 0 auto;
+    text-align: center;
+  }
+
+  .updateDecrementButton,
+  .updateIncrementButton {
+    border-radius: 50px;
+    border: 1px solid #fff;
+    background-color: var(--red);
+    color: #fff;
+    width: 22px;
+    height: 22px;
+  }
+
+  /* Sidebar quantity */
+
+  .sidebar {
+    background-color: white;
+    border-radius: 12px;
+    padding: 24px 0px;
+  }
+
+  .quantity {
+    color: var(--red);
+    font-size: 24px;
+    font-weight: var(--fw_600);
+  }
+
+  #quantity {
+    color: var(--red);
+    font-size: 24px;
+    font-weight: var(--fw_600);
+    margin-right: 8px;
+  }
+
+  p.itemName {
+    margin-right: 60px;
+  }
+
+  .secondRowQuantity {
+    color: var(--red);
+    margin-right: 8px;
+  }
+
+  .sidebar__cart-items {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    margin-top: 20px;
+    padding-bottom: 40px;
+  }
+
+  .cart-item {
+    display: flex;
+    flex-direction: row;
+  }
+
+  
+
+  p.text {
+    color: var(--rose_500);
+    font-weight: var(--fw_600);
+    font-size: 14px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+  }
+
+  .secondRow {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    width: 100%;
+    margin-top: 5px;
+    border-bottom: 1px solid var(--rose_100);
+    padding-bottom: 10px;
+  }
+
+  .closeButton {
+    border-radius: 50px;
+    width: 22px; /* 28x28 */
+    height: 22px;
+    border: 1px solid var(--rose_400);
+    text-align: center;
+    margin: 0;
+    background-color: #fff;
+  }
+
+  /* CHECK HERE TOO */
+  .cartQuantity,
+  .costPerItem {
+    margin-right: 15px;
+    font-size: 14px;
+  }
+
+  .cartQuantity {
+    color: var(--red);
+    font-weight: 600;
+  }
+
+  .costPerItem {
+    color: var(--rose_500);
+    letter-spacing: 1.2px;
+  }
+
+  .itemTotal {
+    color: var(--rose_500);
+    font-weight: 600;
+    font-size: 14px;
+    letter-spacing: 1.2px;
+  }
+
+  .thirdRow {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    padding-top: 20px;
+  }
+
+  .orderTotalText {
+    color: var(--rose_900);
+    font-size: 14px;
+    font-weight: 400;
+  }
+
+  .orderTotal {
+    font-size: 18px;
+    color: var(--rose_900);
+    font-weight: 600;
+  }
+
+  .fourthRow {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    background-color: var(--rose_50);
+    padding: 20px 42px;
+    margin: 20px auto;
+    border-radius: 8px;
+    font-size: 14px;
+  }
+
+  img.carbon-neutrl {
+    margin-right: 6px;
+  }
+
+  .fifthRow {
+    align-items: center;
+    margin: 20px auto;
+  }
+
+  button.checkoutButton {
+    border-radius: 50px;
+    border: none;
+    padding: 16px 90px;
+    background-color: var(--red);
+    color: #fff;
+    font-size: 16px;
+  }
+
+  /*//////////////////////////////////////////////*/
 
   /* Button Hover */
 
@@ -536,6 +737,19 @@ textarea:not([rows]) {
     height: 40px;
   }
 
+  .quantityDisplay {
+    font-size: 14px;
+  }
+
+  button.item-card__button.btn.addToCart {
+    display: flex;
+    flex-direction: row-reverse;
+    justify-content: center;
+    align-items: center;
+    margin: 0 auto;
+    text-align: center;
+  }
+
   .updateDecrementButton,
   .updateIncrementButton {
     border-radius: 50px;
@@ -640,10 +854,23 @@ textarea:not([rows]) {
     float: right;
   }
 
+  /* Sidebar quantity */
   .quantity {
     color: var(--red);
     font-size: 24px;
     font-weight: var(--fw_600);
+  }
+
+  #quantity {
+    color: var(--red);
+    font-size: 24px;
+    font-weight: var(--fw_600);
+    margin-right: 8px;
+  }
+
+  .secondRowQuantity {
+    color: var(--red);
+    margin-right: 8px;
   }
 
   .sidebar__cart-items {
@@ -683,6 +910,7 @@ textarea:not([rows]) {
     background-color: #fff;
   }
 
+  /* CHECK HERE TOO */
   .cartQuantity,
   .costPerItem {
     margin-right: 15px;
@@ -756,15 +984,4 @@ textarea:not([rows]) {
     color: #fff;
     font-size: 16px;
   }
-}
-
-/* Button Events */
-.updateQuantityButton-hide {
-  /* hide by default, onClick show */
-  display: none;
-}
-
-.updateQuantityButton-show {
-  /* onClick show */
-  opacity: 1;
 }
