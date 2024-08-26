@@ -739,6 +739,7 @@ textarea:not([rows]) {
 
   .quantityDisplay {
     font-size: 14px;
+    margin-top: 0;
   }
 
   button.item-card__button.btn.addToCart {
