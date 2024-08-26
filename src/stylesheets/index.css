@@ -599,7 +599,7 @@ textarea:not([rows]) {
   }
 
   p.itemName {
-    margin-right: 300px;
+    margin-right: 0;
   }
 
   p.text {
@@ -1002,7 +1002,7 @@ textarea:not([rows]) {
   button.checkoutButton {
     border-radius: 50px;
     border: none;
-    padding: 16px 90px;
+    padding: 16px 34px;
     background-color: var(--red);
     color: #fff;
     font-size: 16px;
